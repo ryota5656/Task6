@@ -1,0 +1,57 @@
+  <body>
+    
+  <%= render "shared/partial" %>
+  <div class="main">
+  
+  <h3>ユーザー編集</h3>
+  
+ <%= form_with model: @task do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :title ,"タイトル" %></th>
+      <td><%= f.text_field :title %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :start ,"開始日" %></th>
+      <td><%= f.datetime_field :start %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :end ,"終了日" %></th>
+      <td><%= f.datetime_field :end %></td>
+    </tr>
+
+    <tr>
+      <th><%= f.label :checkbox ,"終日" %></th>
+      <td><%= f.check_box :checkbox %><br>　　終日の場合はチェックを入れます</td>
+    </tr>
+    
+    <tr>
+      <th><%= f.label :memo ,"メモ" %></th>
+      <td><%= f.text_area :memo %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "スケジュールの編集を完了する"%></li>
+      <li><%= link_to "スケジュール一覧に戻る", :tasks %></li>
+    </ul>
+  </div>
+  <% end %>
+  </div>
+  
+    <footer>
+    <p>
+    <script language="JavaScript">
+        mydate=new Date();
+        Ye=mydate.getFullYear()+"年";
+        Mo=mydate.getMonth()+1+"月";
+        Da=mydate.getDate()+"日";
+        Day=mydate.getDay();
+        document.write("<span style='color:#fff;'>");
+        document.write("現在の日時 : "+Ye+Mo+Da);
+    </script>
+</footer>
+
+  </body>
